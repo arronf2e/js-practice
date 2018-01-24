@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js图片库</title>
+	<style>
+		li {
+			margin-bottom: 10px;
+			cursor: pointer;
+		}
+		#image {
+			width: 400px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<p>setAttribute, getAttribute练习</p>
+	<br>
+	<ul id="typeList">
+		<li data-url="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1517414309&di=9765b5573b3bf4c5369fc1c4bd834eef&imgtype=jpg&er=1&src=http%3A%2F%2Ffile06.16sucai.com%2F2016%2F0615%2Fc4e1d7606de27945adcd771b3d4f7268.jpg">人物</li>
+		<li data-url="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1517414284&di=8abeb5595542bf121c2ac30441fc37d0&imgtype=jpg&er=1&src=http%3A%2F%2Ffile21.mafengwo.net%2FM00%2F29%2FF3%2FwKgB3FHoo0aAQXMVAALBM6o4xwc97.rbook_comment.w300.jpeg">风景</li>
+		<li data-url="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1517414327&di=05afbe8531080aa9ac16222df1d956aa&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimage%2Fc0%253Dshijue1%252C0%252C0%252C294%252C40%2Fsign%3D81c6a49be350352aa56c2d4b3b2a9187%2Fc75c10385343fbf209240d0fba7eca8065388f96.jpg">宠物</li>
+		<li data-url="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516819968320&di=f2d9243914bcef63c37513ff55705637&imgtype=0&src=http%3A%2F%2Fdl.bizhi.sogou.com%2Fimages%2F2012%2F04%2F18%2F56631.jpg">汽车</li>
+	</ul>
+	<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1517414198&di=9a3499de26dba350409bc4a9740d9f15&imgtype=jpg&er=1&src=http%3A%2F%2Fword.langfly.com%2FPicture%2F9%2F864%2F634528875685779864.jpg" alt="show my picture" id="image">
+	<script>
+		var typeList = document.getElementById('typeList');
+		var imgEle = document.getElementById('image');
+		// 事件委托
+		typeList.addEventListener('click', function(e) {
+			var node = e.target;
+			var url = '';
+			if(node.nodeName == 'LI') {
+				url = node.dataset.url;
+				imgEle.setAttribute('src', url);
+			}
+		})
+	</script>
+</body>
+</html>
